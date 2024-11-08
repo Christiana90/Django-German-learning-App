@@ -1,0 +1,125 @@
+<!-- templates/users/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Colorful gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff; /* White text for better contrast */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Light background for form */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: #2575fc; /* Use a contrasting color for the heading */
+            font-size: 2rem; /* Increase font size */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            text-align: left;
+            font-weight: bold;
+            color: #333; /* Darker color for labels */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+            font-size: 1rem; /* Consistent font size */
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #2575fc; /* Highlight border color */
+            outline: none;
+        }
+
+        button {
+            padding: 0.8rem;
+            background-color: #6a11cb; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2575fc; /* Darker shade on hover */
+        }
+
+        .message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666; /* Light gray for the message */
+        }
+
+        .error {
+            color: red; /* Color for error messages */
+            margin-bottom: 1rem;
+            font-weight: bold; /* Bold error messages */
+        }
+
+        a {
+            color: #6a11cb; /* Link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 1.5rem; /* Adjust heading size for smaller screens */
+            }
+
+            .container {
+                padding: 1.5rem; /* Adjust padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create an Account</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <p class="message">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+</div>
+
+</body>
+</html>
